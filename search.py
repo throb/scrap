@@ -4,6 +4,7 @@ import json
 import logging
 import getopt
 import sys
+import re
 
 ###################################################################
 
@@ -141,6 +142,9 @@ def searchGoogle (productName, searchTerm, resultAmount):
 	else:
 	    illegalURLs.append(url)
 	    logger.info('Found : %s' % url)
+
+    #illegalURLs = [targ for targ in urlList if any(re.search(r'(?!\b{})'.format(goodSite), targ, re.I) for goodSite in accetableSites)]
+    #print matches	    
     
     outData['product']['sites']= illegalURLs
     return outData
