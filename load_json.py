@@ -4,4 +4,5 @@ with open('c:\\Users\\throbby\\Documents\\GitHub\\DMCARequestor\\archetype_2013_
     jsonData = json.load(dataFile)
 
 for site in jsonData['product']['sites']:
-    print site
+    mainSite = site.split('//')[1].split('/')[0].replace('www.','')
+    print mainSite
